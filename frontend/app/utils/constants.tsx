@@ -1,4 +1,4 @@
-const apiBasePath = process.env.NEXT_PUBLIC_VERCEL_URL
-  ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+const apiBasePath = process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL
+  ? `https://${process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL}`
   : `http://localhost:3000`;
 export const apiBaseUrl = `${apiBasePath}/api`;
