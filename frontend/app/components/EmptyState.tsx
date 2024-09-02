@@ -52,7 +52,7 @@ export function EmptyState(props: { onChoice: (question: string) => any }) {
               color={"gray.200"}
               textAlign={"center"}
             >
-              Does the AZA Finance API offer any SDK's?
+              Does the AZA Finance API offer any SDK&apos;s?
             </Heading>
           </CardHeader>
         </Card>
