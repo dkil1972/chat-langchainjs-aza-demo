@@ -215,7 +215,7 @@ export function ChatWindow(props: { conversationId: string }) {
           mb={1}
           color={"white"}
         >
-          CalZo The Aza Finance API Integration Bot
+          CalZso The Aza Finance API Integration Bot
         </Heading>
         {messages.length > 0 ? (
           <Heading fontSize="md" fontWeight={"normal"} mb={1} color={"white"}>

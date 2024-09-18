@@ -22,11 +22,14 @@ import {
 
 import { PineconeStore } from "@langchain/pinecone";
 import { Pinecone } from "@pinecone-database/pinecone";
-import { getBedrockEmbeddings } from "@/app/utils/getBedrockEmbeddings";
+import {
+  getBedrockEmbeddings,
+  getBedrockChatModel,
+} from "@/app/utils/getBedrockEmbeddings";
 
 const RESPONSE_TEMPLATE = `You are an expert programmer and problem-solver, tasked to answer any question about the Aza Finance API.
 Using the provided context, answer the user's question to the best of your ability using the resources provided.
-Generate a comprehensive and informative answer (but no more than 200 words) for a given question based solely on the provided search results (URL and content).
+Generate a comprehensive and informative answer for a given question based solely on the provided search results (URL and content).
 You must only use information from the provided search results.
 Use an unbiased and journalistic tone.
 Combine search results together into a coherent answer.
@@ -207,10 +210,7 @@ export async function POST(req: NextRequest) {
 
     let llm;
     if (config.configurable.llm === "openai_gpt_3_5_turbo") {
-      llm = new ChatOpenAI({
-        modelName: "gpt-3.5-turbo-1106",
-        temperature: 0,
-      });
+      llm = await getBedrockChatModel();
     } else if (config.configurable.llm === "fireworks_mixtral") {
       llm = new ChatFireworks({
         modelName: "accounts/fireworks/models/mixtral-8x7b-instruct",
